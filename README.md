@@ -1,4 +1,4 @@
-# pythonsslservers
+# Python Simple SSL Servers for Testing
 
 Simple Webservers can be run using
 
@@ -16,9 +16,12 @@ SSL enabled simple servers take a bit more:
 ### Generate Self-signed Certificate
 openssl req -newkey rsa:4096 -nodes -sha256 -keyout key.pem -x509 -days 365 -out cert.pem
 
+Note: Real certs can be used 
 ### Deploy Simple SSL Server
 
 Python3:
+
+ssl-server-python3.py: 
 
 ```bash
 # HTTPS server Python3 
@@ -32,8 +35,12 @@ httpd.socket = ssl.wrap_socket (httpd.socket, keyfile="./key.pem", certfile='./c
 httpd.serve_forever()
 
 ```
+Run with ` python3 ssl-server-python3.py `
+
 
 Python2
+
+ssl-server-python3.py:
 
 ```bash
 # HTTPS server Python2
@@ -50,3 +57,4 @@ httpd.socket = ssl.wrap_socket (httpd.socket,
 
 httpd.serve_forever()
 ```
+Run with ` python2 ssl-server-python2.py `
